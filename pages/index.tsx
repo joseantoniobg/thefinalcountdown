@@ -40,7 +40,15 @@ export default function Home() {
 
   return <main className={styles.canvas}>
             <div className={styles.container}>
-               <p className={styles['countdown-info']}>{countDown}</p>
+              <div className={styles['countdown-info']}>
+                <p>{countDown.substring(0, 2)}</p>
+                <p className={styles.dots}>{countDown.substring(2, 3)}</p>
+                <p>{countDown.substring(3, 5)}</p>
+                <p className={styles.dots}>{countDown.substring(5, 6)}</p>
+                <p>{countDown.substring(6, 8)}</p>
+                <p className={styles.dots}>{countDown.substring(8, 9)}</p>
+                <p>{countDown.substring(9, 11)}</p>
+              </div>
                 <div className={styles.names}>
                   <ul>
                     <li>Alef Fernandes</li>

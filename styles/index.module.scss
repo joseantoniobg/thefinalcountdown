@@ -12,6 +12,44 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  @media only screen and (max-width: 100rem) {
+    margin-top: 15rem;
+  }
+}
+
+@font-face {
+  font-family: CountDown;
+  src: url("../public/fonts/countdown.otf") format("opentype");
+}
+
+.countdown-info {
+  display: flex;
+  font-size: 20rem;
+  max-width: 100%;
+  margin-top: -20rem;
+  color: #fff;
+  font-family: "CountDown", monospace;
+  text-shadow: 1rem 1rem 1rem rgba(#000, 0.7);
+  @media only screen and (max-width: 130rem) {
+    font-size: 15rem;
+  }
+  @media only screen and (max-width: 100rem) {
+    font-size: 15rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    line-height: 0;
+
+    .dots {
+      display: none;
+    }
+  }
+}
+
+.names {
+  margin: 0 auto;
+  margin-top: -20rem;
+  text-align: center;
 
   ul {
     margin-top: 7rem;
@@ -25,34 +63,24 @@
     font-family: "Roboto Mono", monospace;
     text-align: center;
   }
-}
 
-@font-face {
-  font-family: CountDown;
-  src: url("../public/fonts/countdown.otf") format("opentype");
-}
-
-.countdown-info {
-  font-size: 20rem;
-  margin: 0;
-  color: #fff;
-  font-family: "CountDown", monospace;
-  text-shadow: 1rem 1rem 1rem rgba(#000, 0.7);
-}
-
-.names {
-  margin-top: 2rem;
+  @media only screen and (max-width: 100rem) {
+    margin-top: -5rem;
+  }
 }
 
 .photo {
-  top: 70%;
-  left: 30%;
-  width: 50%;
+  top: 72%;
+  left: calc(50% - 40rem);
+  width: 100rem;
   height: 42rem;
   overflow: hidden;
   position: absolute;
   img {
     width: 90rem;
+  }
+  @media only screen and (max-width: 100rem) {
+    top: 100%;
   }
 }
 
