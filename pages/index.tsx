@@ -16,8 +16,8 @@ export default function Home() {
     const minutes = Math.round(dif / 60);
     dif = dif % 60;
     const seconds = dif;
-    const countDownText = `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
-    const incrementalSaturation = 100 - ((elapsedTime / totalTime) * 100);
+    const countDownText = dif >= 0 ? `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}` : `00:00:00:00`
+    const incrementalSaturation = elapsedTime <= totalTime ? 100 - ((elapsedTime / totalTime) * 100) : 0;
 
     return {
               countDownText,
@@ -57,12 +57,17 @@ export default function Home() {
                   </ul>
                 </div>
             </div>
-            <div className={styles.photo}>
-              <div className={styles.layers}>
-                <img className={styles.backphoto} src="images/photo.png" alt="" />
-                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.jairo} src="images/jairo.png" alt="" />
-                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.ze} src="images/ze.png" alt="" />
-              </div>
+
+            <div className={styles.layers}>
+              <img className={styles.backphoto} src="images/photo.png" alt="" />
+              <img style={{ filter: `saturate(${saturation}%)` }} className={styles.jairo} src="images/jairo.png" alt="" />
+              <img style={{ filter: `saturate(${saturation}%)` }} className={styles.ze} src="images/ze.png" alt="" />
             </div>
+
+            <div className={styles.layers}>
+              <img className={styles.backphoto2} src="images/photo2.png" alt="" />
+              <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
+            </div>
+
         </main>;
 }
