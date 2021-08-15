@@ -82,8 +82,16 @@
   position: absolute;
   img {
     width: 90rem;
+    @media only screen and (max-width: 100rem) {
+      width: 70rem;
+    }
   }
   @media only screen and (max-width: 100rem) {
+    width: 85rem;
+    top: 110%;
+  }
+  @media only screen and (max-width: 70rem) {
+    width: 80rem;
     top: 110%;
   }
 }
