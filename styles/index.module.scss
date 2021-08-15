@@ -76,6 +76,16 @@
   }
 }
 
+.photo-grid {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  @media only screen and (max-width: 100rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .layers {
   position: relative;
   img {
@@ -85,38 +95,36 @@
 
 .backphoto {
   top: -20rem;
-  left: 10rem;
-  width: 60rem;
+  left: 30%;
+  width: 70rem;
   max-width: 80%;
   z-index: 0;
-  @media only screen and (max-width: 70rem) {
-    left: -10rem;
-  }
   @media only screen and (max-width: 100rem) {
     top: 5rem;
+    left: 7%;
+    width: 60rem;
   }
 }
 
 .ze,
 .jairo {
   top: -20rem;
-  width: 60rem;
-  left: 10rem;
+  width: 70rem;
+  left: 30%;
   max-width: 80%;
   z-index: 1;
-  @media only screen and (max-width: 70rem) {
-    left: -10rem;
-  }
   @media only screen and (max-width: 100rem) {
     top: 5rem;
+    left: 7%;
+    width: 60rem;
   }
 }
 
 .backphoto2 {
   top: -20rem;
-  left: 80rem;
   width: 80rem;
   max-width: 80%;
+  left: -10rem;
   z-index: 0;
   @media only screen and (max-width: 70rem) {
     top: 20rem;
@@ -124,7 +132,7 @@
   }
   @media only screen and (max-width: 100rem) {
     top: 10rem;
-    left: 15rem;
+    left: 30%;
     width: 100rem;
   }
 }
@@ -132,7 +140,7 @@
 .alef {
   top: -20rem;
   width: 80rem;
-  left: 80rem;
+  left: -10rem;
   max-width: 80%;
   z-index: 1;
   @media only screen and (max-width: 70rem) {
@@ -141,7 +149,7 @@
   }
   @media only screen and (max-width: 100rem) {
     top: 10rem;
-    left: 15rem;
+    left: 30%;
     width: 100rem;
   }
 }

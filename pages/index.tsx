@@ -58,16 +58,17 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={styles.layers}>
-              <img className={styles.backphoto} src="images/photo.png" alt="" />
-              <img style={{ filter: `saturate(${saturation}%)` }} className={styles.jairo} src="images/jairo.png" alt="" />
-              <img style={{ filter: `saturate(${saturation}%)` }} className={styles.ze} src="images/ze.png" alt="" />
-            </div>
+           <div className={styles['photo-grid']}>
+              <div className={styles.layers}>
+                <img className={styles.backphoto} src="images/photo.png" alt="" />
+                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.jairo} src="images/jairo.png" alt="" />
+                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.ze} src="images/ze.png" alt="" />
+              </div>
 
-            <div className={styles.layers}>
-              <img className={styles.backphoto2} src="images/photo2.png" alt="" />
-              <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
+              <div className={styles.layers}>
+                <img className={styles.backphoto2} src="images/photo2.png" alt="" />
+                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
+              </div>
             </div>
-
         </main>;
 }
