@@ -13,7 +13,7 @@
   justify-content: center;
   flex-direction: column;
   @media only screen and (max-width: 100rem) {
-    margin-top: 15rem;
+    margin-top: 40rem;
   }
 }
 
@@ -35,14 +35,18 @@
   }
   @media only screen and (max-width: 100rem) {
     font-size: 15rem;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     line-height: 0;
 
     .dots {
       display: none;
     }
+  }
+
+  @media only screen and (max-width: 80rem) {
+    font-size: 12rem;
   }
 }
 
@@ -80,7 +84,7 @@
     width: 90rem;
   }
   @media only screen and (max-width: 100rem) {
-    top: 100%;
+    top: 110%;
   }
 }
 
