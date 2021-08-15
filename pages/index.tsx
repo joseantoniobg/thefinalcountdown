@@ -1,19 +1,20 @@
 import styles from '@styles/index.module.scss'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 export default function Home() {
 
   const runCountdown = (date: Date) => {
     const initialDate = new Date(`2021-08-13T12:00:00.000Z`).getTime();
     const now = new Date().getTime();
-    var dif = Math.round((date.getTime() - now) / 1000);
+    var dif = Math.floor((date.getTime() - now) / 1000);
     const totalTime = dif;
-    const elapsedTime = Math.round((now - initialDate) / 1000);
-    const days = Math.round(dif / 86400);
+    const elapsedTime = Math.floor((now - initialDate) / 1000);
+    const days = Math.floor(dif / 86400);
     dif = dif % 86400;
-    const hours = Math.round(dif / 3600);
+    const hours = Math.floor(dif / 3600);
     dif = dif % 3600;
-    const minutes = Math.round(dif / 60);
+    const minutes = Math.floor(dif / 60);
     dif = dif % 60;
     const seconds = dif;
     const countDownText = dif >= 0 ? `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}` : `00:00:00:00`
@@ -26,28 +27,33 @@ export default function Home() {
   }
 
   const finalDate = new Date('2021-09-03T20:00:00.000Z')
+  //const finalDate = new Date('2021-08-21T20:00:00.000Z')
   const { countDownText, incrementalSaturation } = runCountdown(finalDate);
   const [countDown, setCountDown] = useState(countDownText);
   const [saturation, setSaturation] = useState(incrementalSaturation);
+  const audioPlayer = useRef();
 
   useEffect(() => {
     setTimeout(() => {
       const { countDownText, incrementalSaturation } = runCountdown(finalDate);
       setCountDown(countDownText)
       setSaturation(incrementalSaturation)
+      if (countDownText === `00:00:00:00`) {
+        audioPlayer.current.play();
+      }
     }, 1000)
   })
 
   return <main className={styles.canvas}>
             <div className={styles.container}>
               <div className={styles['countdown-info']}>
-                <p>{countDown.substring(0, 2)}</p>
-                <p className={styles.dots}>{countDown.substring(2, 3)}</p>
-                <p>{countDown.substring(3, 5)}</p>
-                <p className={styles.dots}>{countDown.substring(5, 6)}</p>
-                <p>{countDown.substring(6, 8)}</p>
-                <p className={styles.dots}>{countDown.substring(8, 9)}</p>
-                <p>{countDown.substring(9, 11)}</p>
+                <p>{Number(countDown.substring(0, 2)) > 0 ? countDown.substring(0, 2) : ''}</p>
+                <p className={styles.dots}>{Number(countDown.substring(0, 2)) > 0 ? countDown.substring(2, 3) : ''}</p>
+                <p>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 ? countDown.substring(3, 5) : ''}</p>
+                <p className={styles.dots}>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 ? countDown.substring(5, 6): ''}</p>
+                <p>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 || Number(countDown.substring(6, 8)) > 0 ? countDown.substring(6, 8) : ''}</p>
+                <p className={styles.dots}>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 || Number(countDown.substring(6, 8)) > 0 ? countDown.substring(8, 9) : ''}</p>
+                <p>{countDown !== `00:00:00:00` ? countDown.substring(9, 11) : "OBRIGADO"}</p>
               </div>
                 <div className={styles.names}>
                   <ul>
@@ -70,5 +76,12 @@ export default function Home() {
                 <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
               </div>
             </div>
+            {/* <ReactAudioPlayer
+              src="assets/Mariarita.mp3"
+              autoPlay
+              controls
+              ref={(element) => audioPlayer = element}
+            /> */}
+            <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} autoPlay={true} ref={audioPlayer}></audio>
         </main>;
 }
