@@ -46,13 +46,15 @@ export default function Home() {
   return <main className={styles.canvas}>
             <div className={styles.container}>
               <div className={styles['countdown-info']}>
-                <p>{Number(countDown.substring(0, 2)) > 0 ? countDown.substring(0, 2) : ''}</p>
-                <p className={styles.dots}>{Number(countDown.substring(0, 2)) > 0 ? countDown.substring(2, 3) : ''}</p>
-                <p>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 ? countDown.substring(3, 5) : ''}</p>
-                <p className={styles.dots}>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 ? countDown.substring(5, 6): ''}</p>
-                <p>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 || Number(countDown.substring(6, 8)) > 0 ? countDown.substring(6, 8) : ''}</p>
-                <p className={styles.dots}>{Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 || Number(countDown.substring(6, 8)) > 0 ? countDown.substring(8, 9) : ''}</p>
-                <p>{countDown !== `00:00:00:00` ? countDown.substring(9, 11) : "OBRIGADO"}</p>
+                <p>
+                    {Number(countDown.substring(0, 2)) > 0 ? countDown.substring(0, 2) : ''}
+                    {Number(countDown.substring(0, 2)) > 0 ? countDown.substring(2, 3) : ''}
+                    {Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 ? countDown.substring(3, 5) : ''}
+                    {Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 ? countDown.substring(5, 6): ''}
+                    {Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 || Number(countDown.substring(6, 8)) > 0 ? countDown.substring(6, 8) : ''}
+                    {Number(countDown.substring(0, 2)) > 0 || Number(countDown.substring(3, 5)) > 0 || Number(countDown.substring(6, 8)) > 0 ? countDown.substring(8, 9) : ''}
+                    {countDown !== `00:00:00:00` ? countDown.substring(9, 11) : "OBRIGADO"}
+                </p>
               </div>
                 <div className={styles.names}>
                   <ul>
@@ -75,6 +77,6 @@ export default function Home() {
                 <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
               </div>
             </div>
-            <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} autoPlay={true} ref={audioPlayer}></audio>
+            <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} ref={audioPlayer}></audio>
         </main>;
 }
