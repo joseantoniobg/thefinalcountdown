@@ -1,6 +1,5 @@
 import styles from '@styles/index.module.scss'
 import { useEffect, useRef, useState } from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 
 export default function Home() {
 
@@ -76,12 +75,6 @@ export default function Home() {
                 <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
               </div>
             </div>
-            {/* <ReactAudioPlayer
-              src="assets/Mariarita.mp3"
-              autoPlay
-              controls
-              ref={(element) => audioPlayer = element}
-            /> */}
             <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} autoPlay={true} ref={audioPlayer}></audio>
         </main>;
 }
