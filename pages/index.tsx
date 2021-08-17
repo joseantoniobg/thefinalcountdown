@@ -30,7 +30,7 @@ export default function Home() {
   const { countDownText, incrementalSaturation } = runCountdown(finalDate);
   const [countDown, setCountDown] = useState(countDownText);
   const [saturation, setSaturation] = useState(incrementalSaturation);
-  const audioPlayer = useRef();
+  const audioPlayer = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,7 +38,7 @@ export default function Home() {
       setCountDown(countDownText)
       setSaturation(incrementalSaturation)
       if (countDownText === `00:00:00:00`) {
-        audioPlayer.current.play();
+        if(audioPlayer) audioPlayer.current.play();
       }
     }, 1000)
   })
