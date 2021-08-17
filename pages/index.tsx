@@ -75,6 +75,6 @@ export default function Home() {
                 <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
               </div>
             </div>
-            <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} autoPlay={true} ref={audioPlayer}></audio>
+            <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} ref={audioPlayer}></audio>
         </main>;
 }
