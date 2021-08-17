@@ -7,7 +7,7 @@ export default function Home() {
     const initialDate = new Date(`2021-08-13T12:00:00.000Z`).getTime();
     const now = new Date().getTime();
     var dif = Math.floor((date.getTime() - now) / 1000);
-    const totalTime = dif;
+    const totalTime = (finalDate.getTime() - initialDate) / 1000;
     const elapsedTime = Math.floor((now - initialDate) / 1000);
     const days = Math.floor(dif / 86400);
     dif = dif % 86400;
@@ -17,7 +17,7 @@ export default function Home() {
     dif = dif % 60;
     const seconds = dif;
     const countDownText = dif >= 0 ? `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}` : `00:00:00:00`
-    const incrementalSaturation = elapsedTime <= totalTime ? 100 - ((elapsedTime / totalTime) * 100) : 0;
+    const incrementalSaturation = elapsedTime <= totalTime ? ((elapsedTime / totalTime) * 100) : 0;
 
     return {
               countDownText,
@@ -65,16 +65,16 @@ export default function Home() {
                 </div>
             </div>
 
-           <div className={styles['photo-grid']}>
+          <div className={styles['photo-grid']}>
               <div className={styles.layers}>
                 <img className={styles.backphoto} src="images/photo.png" alt="" />
-                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.jairo} src="images/jairo.png" alt="" />
-                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.ze} src="images/ze.png" alt="" />
+                <img style={{ opacity: `${saturation}%` }} className={styles.jairo} src="images/jairo.png" alt="" />
+                <img style={{ opacity: `${saturation}%` }} className={styles.ze} src="images/ze.png" alt="" />
               </div>
 
               <div className={styles.layers}>
                 <img className={styles.backphoto2} src="images/photo2.png" alt="" />
-                <img style={{ filter: `saturate(${saturation}%)` }} className={styles.alef} src="images/alef.png" alt="" />
+                <img style={{ opacity: `${saturation}%` }} className={styles.alef} src="images/alef.png" alt="" />
               </div>
             </div>
             <audio src="assets/Mariarita.mp3" id="my_audio" loop={true} ref={audioPlayer}></audio>
