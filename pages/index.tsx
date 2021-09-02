@@ -28,7 +28,7 @@ export default function Home() {
            }
   }
 
-  const finalDate = new Date('2021-09-03T20:00:00.000Z')
+  const finalDate = new Date('2021-09-10T20:00:00.000Z')
   //const finalDate = new Date('2021-08-18T20:00:00.000Z')
   const { countDownText, incrementalSaturation } = runCountdown(finalDate);
   const [countDown, setCountDown] = useState(countDownText);
