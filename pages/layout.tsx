@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-export const Layout = ({children}) => {
+const Layout = ({children}) => {
   return (<>
             <Head>
               <title>The final Countdown</title>
@@ -15,3 +15,5 @@ export const Layout = ({children}) => {
             </div>
           </>)
 }
+
+export default Layout;

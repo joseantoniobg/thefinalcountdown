@@ -1,7 +1,7 @@
 import styles from '@styles/index.module.scss'
 import { useEffect, useRef, useState } from 'react';
 import { runCountdown, getFormattedTexts, playSong } from '../logic/logic';
-import { Layout } from './layout';
+import Layout from './layout';
 
 export default function Home() {
   const { countDownText, incrementalSaturation } = runCountdown();
