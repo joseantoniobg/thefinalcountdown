@@ -17,7 +17,7 @@ export default function Home() {
     dif = dif % 60;
     const seconds = dif;
     const countDownText = dif >= 0 ? `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}` : `00:00:00:00`
-    const incrementalSaturation = elapsedTime <= totalTime ? ((elapsedTime / totalTime) * 100) : 0;
+    const incrementalSaturation = elapsedTime <= totalTime ? ((elapsedTime / totalTime) * 100) : 100;
 
     console.log(elapsedTime)
     console.log(totalTime)
